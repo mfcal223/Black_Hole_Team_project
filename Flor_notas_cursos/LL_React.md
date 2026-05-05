@@ -153,83 +153,23 @@ Use the playground at `playground.react.dev` to transform their components to op
 
 ---
 
-## Create React Elements (Part 2)
+## JSX
 
-To start the project, you will use VITE. 
-
-You will need to download the Exercise_files.zip from the course webpage.
-
-Open the your course codespace, go to Menu > Open in VS code Desktop
-
-Once the codespace is open in you local app, you can add the Exercise folder. 
-
-Go to `directory 02_01b`
-```
-Exercise_Files/Ch02/02_01/02_01b
-
-```
-And run a command to create the vite project:
-```bash
-
-npm create vite@latest react-project -- --template react 
-# "react-project" is a name for the project. You can change this, just remember to keep consistency with future commands
-# there might already be a "react-project" folder, so you might need to choose a different name
-# this comand will prompt a response telling you to run these other commands
-```
-
-This is what I saw when trying this exercise (*it asked me to install a dependency to what I said yes*):
-```bash
-$ npm create vite@latest react-project-flor -- --template react
-
-> npx
-> "create-vite" react-project-flor --template react
-
-│
-◇  Install with npm and start now?
-│  Yes
-│
-◇  Scaffolding project in /workspaces/react-essential-training-5949338/Exercise_Files/Ch02/02_01/02_01b/react-project-flor...
-│
-◇  Installing dependencies with npm...
-
-# it installed npm
-
-◇  Starting dev server...
-
-> react-project-flor@0.0.0 dev
-> vite
+`JSX` or `JavaScript is XML` is a syntax that you can use to write HTML like syntax in a React component in a JavaScript file.  
+Not only can this handle hardcoded text, but it also can handle variables.  
 
 
-  VITE v8.0.10  ready in 779 ms
 
-  ➜  Local:   http://localhost:5173/
-  ➜  Network: use --host to expose
-  ➜  press h + enter to show help
-```
-
-In the terminal, move inside your react-project directory. Confirm there is a file "package.json" (`ls`).  
-Open that package.json and delete the "dependencies" block for react
-save file. Don't forget to save this change. 
-
-Then, in the terminal, execute:
-```
-npm install --save-exact react@rc react-dom@rc
-```
-
-Now, you should see this block in the package.json file
-```json
-  "dependencies": {
-    "react": "19.0.0-rc.1",
-    "react-dom": "19.0.0-rc.1"
-  }
-  ```
-
- Now that you've done that, this has installed the most recent versions of React, so React 19, the release candidate.
- You can run `npm install` to run the rest of the packages. And then you can run based on these scripts that are here.  
- You can run `npm run dev`. This is going to start my project over here on localhost:5173. In the browser, if I go to localhost:5173, this is going to show me my React project working. 
+ ---
 
 
- last video 
- https://www.linkedin.com/learning/react-essential-training/initializing-a-project-with-vite?autoSkip=true&resume=false
 
- 
+You have just created a new React project using Vite and need to make some initial changes to it for rendering purposes. After stripping away most elements from the App component, what should you do to ensure the basic setup renders Hello React! on the browser correctly?
+
+    Remove unnecessary imports from App.jsx and update the main.jsx to remove StrictMode, then run the development server using npm run dev.
+
+    Correct
+
+    This sequence of actions ensures that unnecessary imports are removed, the main.jsx is streamlined, and running the correct npm command will launch the development server, rendering Hello React! in the browser.
+
+---
