@@ -1,4 +1,4 @@
-# Chapter 03
+# Chapter 03 - Writting React Components.
 
 ## Working with list
 
