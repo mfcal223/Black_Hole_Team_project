@@ -1,12 +1,28 @@
+- [React](#react)
+- [React Documentation:](#react-documentation)
+- [Utils \& Tools to work with React](#utils--tools-to-work-with-react)
+  - [Online compiler](#online-compiler)
+  - [Extension for Chrome or Mozilla](#extension-for-chrome-or-mozilla)
+  - [Alternative for VS Code](#alternative-for-vs-code)
+  - [Extension for VS Code](#extension-for-vs-code)
+  - [Vite](#vite)
+- [React course : Linkedin Learning](#react-course--linkedin-learning)
+  - [React Fundamentals](#react-fundamentals)
+    - [GitHub \> \> \> React codespace :](#github----react-codespace-)
+    - [codespace commands](#codespace-commands)
+    - [React rules](#react-rules)
+    - [How React works + DOM](#how-react-works--dom)
+    - [Question about React "Fundamentals"](#question-about-react-fundamentals)
+  - [JSX](#jsx)
+
+---
 
 # React
 React is a JavaScript library that you can use to create user interfaces. 
 
 # React Documentation: 
-
-https://react.dev/
-
-https://react.dev/learn
+* https://react.dev/
+* https://react.dev/learn
 
 ---
 
@@ -40,7 +56,7 @@ this is an in-browser editor.
 
 ## Extension for VS Code
 
-* Prettier - Code formatter
+* `Prettier - Code formatter  `
 by prettier.io
 
 * In  VS Code settings, search for "format on save" and make sure "Format a file on save" option is ON.
@@ -57,13 +73,13 @@ Vite will allow you to generate a React application and have some built-in tooli
 ---
 
 
-# React Linkedin Learning
+# React course : Linkedin Learning
 
 https://www.linkedin.com/learning/react-essential-training/how-to-use-codespaces-what-you-should-know?autoSkip=true&resume=false
 
-Linkedin Learning : 
-Usuario : pcz@tutonow.com
-Pass : RgGBz0LNA&a2@L!m
+**Linkedin Learning credentials:**
+*Usuario* : pcz@tutonow.com
+*Pass* : RgGBz0LNA&a2@L!m
 
 ## React Fundamentals
 
