@@ -101,10 +101,34 @@ If you need to install dependencies like `npm` in this directory, go to react-pr
 
 ```bash
 cd react-project
+# or however the name of the directory where the file package.json is
 npm install
 ```
 this will install dependencies in the background.
 
+`Each React project is independent. You may need to run npm install in every new react-project foler you have`
+
+### Normal Workflow for each project foler
+```bash
+cd <project-folder>
+npm install     # only once per project
+# this will install
+npm -v
+node -v
+# verify installation
+npm run dev
+# this will execute it
+```
+
+`npm install` will only work on the React project root folder, the one that has:
+| Important file/folder | Meaning                |
+| --------------------- | ---------------------- |
+| `package.json`        | Project configuration  |
+| `node_modules/`       | Installed dependencies |
+| `src/`                | React source code      |
+| `public/`             | Static assets          |
+| `vite.config.js`      | Vite configuration     |
+If package.json is missing → npm cannot work there.  
 
 ---
 

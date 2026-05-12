@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"uri": "vscode-remote://codespaces+organic-broccoli-v6qppj6vpqwrc55/workspaces/react-essential-training-5949338"
+		},
+		{
+			"uri": "vscode-remote://codespaces+organic-broccoli-v6qppj6vpqwrc55/workspaces"
+		}
+	],
+	"remoteAuthority": "codespaces+organic-broccoli-v6qppj6vpqwrc55",
+	"settings": {
+		"explorer.openEditors.visible": 0,
+		"terminal.integrated.fontSize": 18,
+		"workbench.colorTheme": "Visual Studio Dark",
+		"workbench.statusBar.visible": true,
+		"liveServer.settings.root": "/docs",
+		"liveServer.settings.donotVerifyTags": true
+	}
+}
