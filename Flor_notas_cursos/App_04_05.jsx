@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,useReducer } from "react";
 import "./App.css";
 import logo from "./images/BHT_logo.png";
 
@@ -22,11 +22,13 @@ const dishObjects = items.map((dish, i) => ({
   title: dish
 }));
 
-function Main({ dishes }) {
+function Main({ dishes, workStatus, onStatus }) {
   return (
     <>
       <div>
-        Welcome to our Home page
+        <h2> Welcome to our Home page! </h2> 
+        <h3> {workStatus ? " We are working" : " We are sleeping"}</h3>
+        <button onClick={() => onStatus(true)}>Are we sleeping? Click to make us work</button>
       </div>
       <main> 
           <img 
@@ -47,15 +49,22 @@ function Main({ dishes }) {
 console.log(dishObjects);
 
 function App() {
-  const [status, setStatus] = useState("having Lunch");
-
+  //const [status, setStatus] = useState(true);
+  const [status, toggle_dispatch] = useReducer((status) => !status, true);
   return (
     <div>
-      <h1> The team is currently {status}.</h1>
-      <button onClick={() => setStatus("Working")}> 
-        Make them work</button>
+      <h1> 
+        The team is currently {" "}
+        {status ? "working" : "on a break"}.
+      </h1>
+      <button onClick={toggle_dispatch}> 
+        {status ? "BUT the team is very tired" : "Now the team is full of energy"}
+        </button>
       <Header name="BHT" year={new Date().getFullYear()} />
-      <Main dishes={dishObjects} />
+      <Main 
+        dishes={dishObjects}
+        workStatus={status} 
+        onStatus={toggle_dispatch}/>
     </div>
   );
 }

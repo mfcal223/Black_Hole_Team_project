@@ -125,7 +125,7 @@ status     -> "having Lunch"    -> this is the current value
 setStatus  -> function          -> Updates the value & tells React to re-render
 ```
 
-React uses a function because it needs to track the change, re-render and update DOM safely.
+**React uses a function because it needs to track the change, re-render and update DOM safely.**
 
 `useState("having Lunch")` -> defines the INITIAL state (when it loads for the 1st time).
 We can add a button to change that initial state.
@@ -155,35 +155,212 @@ function App() {
 
 --- 
 
-Why This Matters So Much in React
+## Toggling State
 
-This syntax becomes EXTREMELY important with `Hooks`.
+In order to be able to toggle the state of a displayed element, you can adjust our code to a `Boolean State`.
 
-Soon you will see:
+Set the initial state as `true`
+```jsx
+const [status, setStatus] = useState(true);
+```
 
-const [count, setCount] = useState(0);
+It no longer stores plain text. Now it stores a **Boolean value**.   
 
-This confuses almost every beginner at first.
+To be able to set up a `Conditional Rendering`, you can use a `Ternary Operator`.
 
-But now you can understand it.
+```jsx
+      <h1> 
+        The team is currently {" "}
+        {status ? "working" : "on a break"}.
+      </h1>
+```
 
-What useState() Actually Returns
+As the initial status == true, then at first the UI will display "working".
 
-useState() returns an ARRAY.
+To set the opposite (!status), you can modify the button.  
+Depending of the boolean state of **status**, the text displayed on the button can be toggled too.  
 
-Something conceptually like:
 
-[0, someFunction]
+Final version of the code:  
+```jsx
+<button onClick={() => setStatus(!status)}> 
+        {status ? "The team is tired" : "The team is full of energy"}
+        </button>
+```
 
-Then destructuring happens:
+```jsx
+function App() {
+  const [status, setStatus] = useState(true);
 
-const [count, setCount] = useState(0);
+  return (
+    <div>
+      <Header name="BHT" year={new Date().getFullYear()} />
+      <Main dishes={dishObjects} />
+      <h1> 
+        The team is currently {" "}
+        {status ? "working" : "on a break"}.
+      </h1>
+      <button onClick={() => setStatus(!status)}> 
+        {status ? "The team is tired" : "The team is full of energy"}
+        </button>
+    </div>
+  );
+}
+```
 
-which means:
-
-count      -> 0
-setCount   -> function
-
-React is heavily built around this pattern.
+> This lesson reinforces a major React principle: `The UI is a reflection of state`. You do NOT manually change HTML. When state changes, React re-renders and the UI automatically reflects the new state.  
+> React UI is dynamically generated from state.
 
 ---
+
+## Handling state with nested components
+
+State usually belongs in the closest common parent component that needs to control or share it (it should be created in the highest-in-the-DOM-tree common parent component).  
+In these examples, the state is created in App() for this reason.  
+
+In the current example, App() is the component that "owns" the state (parent);  Header and Main are its children components/. 
+
+![SS parent-child component tree](/Flor_notas_cursos\pics\State_owner.png)
+
+### How do you communicate parent and child components?
+`You pass the component as a prop. `  
+Props allow a parent component to send information to a child component.  
+
+Like this, you can pass down values and functions. 
+
+```jsx
+/*inside App()*/
+<Main dishes={dishObjects} workStatus={status} onStatus={setStatus}/>
+/* " I am sending main() the current status value and this function that can change it.*/ 
+```
+
+Inside the child component, they are received as props.  
+Passing the state-updating function is quite important. This means the child component is able to call it and modify the state.
+```jsx
+function Main({ dishes, workStatus, onStatus }) {
+  return (
+    <>
+      <div>
+        <h2>Welcome to our Home page! {workStatus ? "Working" : "Sleeping"}</h2>
+        <button onClick={() => onStatus(true)}>They want to work!</button>
+      </div>
+[...]
+  )
+}
+```
+
+`So even though the button is inside Main, the state still changes in App.`
+
+If you were to duplicae this state in several child components, that could lead to sync issues.
+In this situations is better to keep one ***Single Source of Truth***
+
+This is how the code looks now:  
+```jsx
+function Main({ dishes, workStatus, onStatus }) {
+  return (
+    <>
+      <div>
+        <h2>
+        Welcome to our Home page!
+        {workStatus ? "We are working" : "We are sleeping"}
+        </h2> 
+        <button onClick={() => onStatus(true)}>They want to work!</button>
+       </div>
+      <main> 
+          <img 
+              src={logo}
+              height={200}
+              alt="BHT's logo"/>
+          <ul> 
+            {dishes.map((dish) => (
+              <li key={dish.id} style={{ listStyleType: "none"}}>
+                {dish.title}</li>
+            ))} 
+          </ul>
+      </main>
+    </>
+  );
+}
+
+console.log(dishObjects);
+
+function App() {
+  const [status, setStatus] = useState(true);
+
+  return (
+    <div>
+      <h1> 
+        The team is currently {" "}
+        {status ? "working" : "on a break"}.
+      </h1>
+      <button onClick={() => setStatus(!status)}> 
+        {status ? "BUT the team is very tired" : "Now the team is full of energy"}
+        </button>
+      <Header name="BHT" year={new Date().getFullYear()} />
+      <Main dishes={dishObjects} workStatus={status} onStatus={setStatus}/>
+    </div>
+  );
+}
+```
+
+---
+
+## Managing state with useReducer
+
+`useReducer` is another React Hook. It is similar to `useState`, but it organizes state changes differently.  
+
+A `reducer` is a function that receives the current state and returns the next state.  
+
+```jsx
+//in the headertop of App.jsx file
+import { useState,useReducer } from "react";
+
+//then in App()
+function App() {
+  //const [status, setStatus] = useState(true);
+  const [status, toggle_dispatch] = useReducer((status) => !status, true);
+  return (
+    <div>
+      <h1> 
+        The team is currently {" "}
+        {status ? "working" : "on a break"}.
+      </h1>
+      <button onClick={toggle_dispatch}> 
+        {status ? "BUT the team is very tired" : "Now the team is full of energy"}
+        </button>
+      <Header name="BHT" year={new Date().getFullYear()} />
+      <Main 
+        dishes={dishObjects}
+        workStatus={status} 
+        onStatus={toggle_dispatch}/>
+    </div>
+  );
+}
+```
+
+With `useState`, you directly say what the new state should be: 
+`setStatus(!status);`  
+
+With useReducer, you move the update logic into a separate function:  
+```jsx
+(status) => !status
+```
+Then your button only calls: `toggle_dispatch`  
+So the component using the button does not need to know how the state changes.  
+Therefore, child components can receive only this: `onStatus={toggle_dispatch}` without needing to know whether the state becomes true, false, or something else.
+
+| useState | useReducer|
+|----------|-----------|
+|when the state is simple | when state changes have more rules   |
+| open / closed | when several actions can modify the same state |
+| to count |when state is an object with many fields|
+| to input text | when you want update logic in one place|
+| true / false ||
+
+
+
+---
+
+## Working with the useEffect hook
+
+

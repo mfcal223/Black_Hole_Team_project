@@ -2,6 +2,9 @@
     "folders": [
         {
             "path": "."
+        },
+        {
+            "path": "\\\\wsl.localhost\\Ubuntu\\home\\florencia\\proyectos\\LL_React_Essentials\\Ex_Files_React_EssT\\Exercise_Files"
         }
     ]
 }
