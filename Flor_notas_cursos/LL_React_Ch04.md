@@ -363,4 +363,69 @@ Therefore, child components can receive only this: `onStatus={toggle_dispatch}` 
 
 ## Working with the useEffect hook
 
+`useEffect` is used when you want React to perform actions outside of rendering the UI itself. These actions are called `Side Effects` and they can be:  
+* print messages to the console (logs)  
+* fetch data from an API  
+* start animations  
+* update the browser title  
+* work with timers  
+* save data (write to localStorage)  
+* subscribe to events
 
+```jsx
+//iimport useEffect
+import { useEffect,useState,useReducer } from "react";
+
+// example: whenever [status] changes run this function
+    useEffect(() => {
+      console.log(`The team is ${status ? "working" : "sleeping"}.`)
+    }, [status]);
+```
+
+useEffect() takes 2 parameteres
+```jsx
+useEffect(
+  callbackFunction,
+  dependencyArray
+);
+```
+
+`callbackFunction` = what shoud be executed. In the example: print a message to the console. 
+
+`dependencyArray` = controls WHEN the effect runs. in the example when [status] change.    
+It could be `[]` == when the UI is first rendered.  
+It could be after every render if no argument is supplied.
+```jsx
+useEffect(() => {
+  console.log("Hello");
+});
+```
+
+Some different examples could be:  
+
+> Fetching data  
+When the component first loads, fetch data from the server.  
+
+```jsx
+useEffect(() => {
+  fetchUsers();
+}, []);
+```
+
+> Updating Browser Title  
+Whenever count changes, update the browser tab title.  
+```jsx
+useEffect(() => {
+  document.title = `Users: ${count}`;
+}, [count]);
+```
+
+> Timers
+Start a timer when component loads.
+```jsx
+useEffect(() => {
+  const timer = setInterval(...);
+
+  return () => clearInterval(timer);
+}, []);
+```
