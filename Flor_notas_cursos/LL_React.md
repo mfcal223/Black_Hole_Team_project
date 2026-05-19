@@ -6,10 +6,14 @@
   - [Alternative for VS Code](#alternative-for-vs-code)
   - [Extension for VS Code](#extension-for-vs-code)
   - [Vite](#vite)
+  - [Next.js](#nextjs)
+  - [Vite vs Next](#vite-vs-next)
 - [React course : Linkedin Learning](#react-course--linkedin-learning)
   - [React Fundamentals](#react-fundamentals)
     - [GitHub \> \> \> React codespace :](#github----react-codespace-)
     - [codespace commands](#codespace-commands)
+    - [Normal Workflow for each project foler](#normal-workflow-for-each-project-foler)
+    - [Tailwind](#tailwind)
     - [React rules](#react-rules)
     - [How React works + DOM](#how-react-works--dom)
     - [Question about React "Fundamentals"](#question-about-react-fundamentals)
@@ -72,6 +76,39 @@ Vite will allow you to generate a React application and have some built-in tooli
 
 ---
 
+## Next.js
+`Next.js` is one of the most common React frameworks, and it's one that's recommended by the official React team for creating your projects. Within it is baked in a lot of those best practices in the world of React.  
+Using Next.js will allow you to take advantage of it without having to do too much setup.  
+
+---
+
+## Vite vs Next 
+
+| React                              | Next.js                              |
+| ---------------------------------- | ------------------------------------ |
+| UI library                         | Full framework                       |
+| Helps build components             | Helps build complete applications    |
+| You configure many things manually | Many best practices already included |
+| Mostly frontend-focused            | Fullstack capabilities               |
+
+Next.js adds:
+* routing  
+* server rendering  
+* optimization  
+* project structure  
+* backend features  
+* API support  
+* production setup  
+  
+| Tool    | What It Is                             |
+| ------- | -------------------------------------- |
+| Vite    | A fast frontend development/build tool |
+| Next.js | A full React framework                 |
+
+
+
+---
+
 
 # React course : Linkedin Learning
 
@@ -129,6 +166,24 @@ npm run dev
 | `public/`             | Static assets          |
 | `vite.config.js`      | Vite configuration     |
 If package.json is missing → npm cannot work there.  
+
+---
+
+### Tailwind
+Tailwind is the CSS system that shadcn/ui expects.  
+
+You do not usually write CSS like this:
+```css
+.card {
+  padding: 1rem;
+  border-radius: 8px;
+}
+```
+Instead, with Tailwind you write classes directly in JSX:
+```jsx
+<div className="p-4 rounded-lg shadow">
+```
+shadcn/ui components are basically ready-made React components styled with Tailwind.
 
 ---
 

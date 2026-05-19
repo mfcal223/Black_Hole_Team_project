@@ -19,3 +19,4 @@ lsof -i :5173
 kill -9 <PID>
 #if you need to free the port and stopping vite did not work
 ```
+

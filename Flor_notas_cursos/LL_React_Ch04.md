@@ -373,7 +373,7 @@ Therefore, child components can receive only this: `onStatus={toggle_dispatch}` 
 * subscribe to events
 
 ```jsx
-//iimport useEffect
+//import useEffect
 import { useEffect,useState,useReducer } from "react";
 
 // example: whenever [status] changes run this function
