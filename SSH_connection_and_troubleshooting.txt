@@ -1,0 +1,113 @@
+# Comandos útiles
+
+tree -a ./nombredelacarpetaquequereslistar
+
+
+
+marialopez
+test
+
+
+# Para que funcione la web alocada en VM, usando browser en host pc
+ssh -L 5173:127.0.0.1:5173 transcendence@192.168.1.30
+
+cd ~/42-agentForge/srcs/frontend
+npm run dev -- --host 127.0.0.1 --port 5173
+
+# check q el sitio esté andando
+curl -I http://localhost:5173
+
+
+=======================
+
+# VS CODE SERVER CORRUPTION FIX
+
+Great! Save this as your **VS Code Remote-SSH rescue checklist**.
+
+## 1. Confirm SSH works outside VS Code
+
+```bash
+ssh transcendence@192.168.1.30
+```
+
+If this works, the VM and SSH are fine.
+
+## 2. Read the VS Code Remote-SSH log
+
+In VS Code:
+
+```text
+View > Output > Remote - SSH
+```
+
+Look for lines like:
+
+```text
+Failed to parse remote port from server output
+listeningOn====
+Exec server process not found
+```
+
+That usually means **VS Code server on the VM is broken/corrupted**.
+
+## 3. Check the remote VS Code server files
+
+Inside the VM:
+
+```bash
+ls -la ~/.vscode-server
+```
+
+Look for suspicious files with size `0`, especially:
+
+```bash
+code-xxxxxxxxxxxxxxxx
+```
+
+Example bad sign:
+
+```text
+code-fcf604...   0 bytes
+```
+
+## 4. Remove only the broken VS Code server files
+
+```bash
+rm -f ~/.vscode-server/code-*
+rm -f ~/.vscode-server/.cli.*.log
+rm -rf ~/.vscode-server/cli
+rm -rf /tmp/vscode-*
+rm -rf /run/user/1000/vscode-*
+```
+
+Then close all VS Code windows and reconnect.
+
+## 5. If that does not work, full reset
+
+```bash
+rm -rf ~/.vscode-server
+rm -rf ~/.vscode-remote
+rm -rf /tmp/vscode-*
+rm -rf /run/user/1000/vscode-*
+```
+
+This **does not delete your repo**. It only removes VS Code’s remote helper files.
+
+## 6. Reconnect
+
+In VS Code:
+
+```text
+Ctrl + Shift + P
+Remote-SSH: Connect to Host...
+```
+
+VS Code will reinstall the remote server automatically.
+
+## Rule of thumb
+
+If normal SSH works but VS Code Remote-SSH fails, the problem is usually **not Git** and **not your repository**. It is usually the remote VS Code server under:
+
+```bash
+~/.vscode-server
+```

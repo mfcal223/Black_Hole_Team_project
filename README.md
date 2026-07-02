@@ -20,3 +20,12 @@ kill -9 <PID>
 #if you need to free the port and stopping vite did not work
 ```
 
+---
+
+https://cursor.com/product
+
+https://mrchief.ai/ai-agent-platform?gad_source=1&gad_campaignid=23751477555&gclid=Cj0KCQjwlLDQBhDjARIsAPlIefGdLzFtfyfiMFwmr-_nz3fKvtVEPNJFMi6YtdrQuwx5kNjc37ZyRe4aAtumEALw_wcB
+
+1. javascript or typescript?
+2. Vite or Next.js?
+3. 

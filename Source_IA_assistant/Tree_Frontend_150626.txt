@@ -1,0 +1,35 @@
+florencia@DESKTOP-D9FL63O:frontend$ ls
+Dockerfile       eslint.config.js  package-lock.json  src                tsconfig.node.json
+README.md        index.html        package.json       tsconfig.app.json  vite.config.ts
+components.json  node_modules      public             tsconfig.json
+florencia@DESKTOP-D9FL63O:frontend$ cd src/
+florencia@DESKTOP-D9FL63O:src$ ls
+App.tsx  assets  components  index.css  layouts  lib  main.tsx  pages  routes  services
+florencia@DESKTOP-D9FL63O:src$ tree -a pages/ && tree -a routes/ && tree -a services/ && tree -a components/
+pages/
+├── DashboardPage.tsx
+├── HomePage.tsx
+├── LoginPage.tsx
+└── RegisterPage.tsx
+
+1 directory, 4 files
+routes/
+├── AdminRoute.tsx
+└── ProtectedRoute.tsx
+
+1 directory, 2 files
+services/
+├── apiClient.ts
+├── authHelpers.ts
+└── authService.ts
+
+1 directory, 3 files
+components/
+├── theme-provider.tsx
+└── ui
+    ├── button.tsx
+    ├── card.tsx
+    ├── input.tsx
+    └── label.tsx
+
+2 directories, 5 files

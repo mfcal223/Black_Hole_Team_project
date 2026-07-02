@@ -1,0 +1,6 @@
+Instructions:
+
+- Unless requested otherwise, please reply in English
+- Do NOT asume I am right. If something I state is wrong, say it and explain why.
+- when instructing changes in a file, and if those changes are multiple , in more than 1 block of code of the file, or there are not precise instructions to where add the changes, please provide the new full version of the file.
+- When needed, Request information from backend (or frontend) to confirm an endpoint or the name of a function before suggesting testing a new implementation or changes, 

@@ -1,0 +1,27 @@
+@joselievano 
+
+Sé que dijiste que nos ibas a crear PRD, pero como para ir entendiendo que es lo que me sugeriste que hiciera a continuación mire lo que dijiste de la inyección del login. 
+
+Lo que entendi es que como vamos a necesitar que ese JWT token (que se genera al hacer login) se "rechequee" en diferentes "checkpoints", hay que hacer algo que guarde ese token, y sea al que se le consulte para estas reiteradas validaciones.
+
+Entonces crearia un archivo (apiClient.ts) que centralizaria estos momento de autenticación repetidos. 
+
+Hablando con GPT, me dijo que para nuestro proyecto eso estaria muy bien y que no lo haria más complejo que eso...pero que existe otra cosa que se llama “Axios interceptor injection” 
+
+Entiendo que lo que eso automatiza es la "inyeccion" del token en donde se necesita autenticar
+
+```
+Login system
+    ↓
+authService.ts
+    ↓ saves JWT
+localStorage
+    ↓
+Axios interceptor (or fetch wrapper)
+    ↓ automatically injects JWT
+Backend protected endpoints
+```
+
+chatGPT me dice que ...en este momento del proyecto aconseja no incluir esto último...que es complejizar las cosas innecesariamente en esta instancia.
+
+Queria chequear con vos a qué te referias como para poder sentarme a entender del todo y ver qué puedo ir haciendo.

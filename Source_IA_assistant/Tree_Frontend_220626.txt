@@ -1,0 +1,41 @@
+florencia@DESKTOP-D9FL63O:42-agentForge$ cd srcs/frontend/src/
+florencia@DESKTOP-D9FL63O:src$ ls
+App.tsx  assets  components  index.css  layouts  lib  main.tsx  pages  routes  services  types
+florencia@DESKTOP-D9FL63O:src$ tree -a pages/ && tree -a routes/ && tree -a services/ && tree -a components/
+pages/
+├── AgentsPage.tsx
+├── DashboardPage.tsx
+├── EmployeesPage.tsx
+├── HomePage.tsx
+├── LoginPage.tsx
+└── RegisterPage.tsx
+
+1 directory, 6 files
+routes/
+├── AdminRoute.tsx
+└── ProtectedRoute.tsx
+
+1 directory, 2 files
+services/
+├── adminService.ts
+├── agentService.ts
+├── api.ts
+├── authHelpers.ts
+├── authService.ts
+├── employeeService.ts
+├── userSettingsService.ts
+├── userSourceService.ts
+├── workflowService.ts
+└── workflowStepService.ts
+
+1 directory, 10 files
+components/
+├── theme-provider.tsx
+└── ui
+    ├── button.tsx
+    ├── card.tsx
+    ├── input.tsx
+    └── label.tsx
+
+2 directories, 5 files
+florencia@DESKTOP-D9FL63O:src$

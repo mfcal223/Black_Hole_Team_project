@@ -1,0 +1,23 @@
+{
+  "vault_name": "agentforge",
+  "directories": {
+    "bugs": "Bugs",
+    "features": "Features",
+    "tasks": "Tasks",
+    "docs": "Docs",
+    "code": "Code",
+    "adrs": "ADRs",
+    "glossary": "Glossary",
+    "rules": "rules"
+  },
+  "statuses": {
+    "bugs": ["to-do", "in-progress", "done"],
+    "features": ["to-do", "in-progress", "done"],
+    "tasks": ["current", "done"],
+    "adrs": ["proposed", "accepted", "deprecated", "superseded"]
+  },
+  "obsidian": {
+    "use_cli": true,
+    "vault_name": null
+  }
+}
